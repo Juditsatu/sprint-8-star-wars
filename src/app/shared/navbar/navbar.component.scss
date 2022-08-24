@@ -1,0 +1,18 @@
+li {
+    cursor: pointer;
+}
+
+@media screen and (min-width:992px) {
+    
+    .navbar-collapse {
+        flex-grow: 0;
+    }
+    
+    .container-fluid.center {
+        justify-content:space-around;
+    }
+}
+
+.navbar-nav {
+    text-align: center;
+}
