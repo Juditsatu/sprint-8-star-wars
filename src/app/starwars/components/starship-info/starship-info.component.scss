@@ -1,0 +1,30 @@
+.container {
+    background-color: #191919;
+}
+
+#content {
+    border-left: 2px solid #9e4f60;
+}
+
+.section-color {
+    color: #9e4f60;
+}
+
+.category {
+    border-right: 1px solid rgba(255,255,255,0.1);
+}
+
+h3 {
+    font-weight: 400;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+h4 {
+    margin-bottom: 8px;
+    color: #ddd;
+    font-weight: 200;
+    font-size: 0.9em;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}

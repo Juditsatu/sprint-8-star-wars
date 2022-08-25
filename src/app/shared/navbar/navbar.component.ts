@@ -8,19 +8,7 @@ import { Router } from '@angular/router';
 })
 export class NavbarComponent implements OnInit {
 
-  public isCollapsed = true;  
-  starShipActive: boolean = false;
-  homeActive: boolean = false;
-
-  setStarShipActive() {
-    this.starShipActive = true;
-    this.homeActive = false;
-  }
-
-  setHomeActive() {
-    this.starShipActive = false;
-    this.homeActive = true;
-  }
+  public isCollapsed = true;
 
   constructor( public router: Router ) { }
 

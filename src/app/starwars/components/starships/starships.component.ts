@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StarshipsService } from '../../services/starships.service';
 
-import { Result, Starship } from '../../interfaces/starship.interface';
+import { Result } from '../../interfaces/starship.interface';
 
 @Component({
   selector: 'app-starships',
@@ -10,18 +10,16 @@ import { Result, Starship } from '../../interfaces/starship.interface';
 })
 export class StarshipsComponent implements OnInit {
 
-  constructor( private starshipService: StarshipsService) { }
+  constructor( private starshipService: StarshipsService ) { }
 
   @Input() starships: Result[] = [];
 
   ngOnInit(): void {
-
     this.getStarships();
-
   }
 
   getStarships() {
-    this.starshipService.getStarships()
+    this.starshipService.getAllStarships()
       .subscribe({
         next: (response: any) => {
           this.starships = response.results;

@@ -1,0 +1,48 @@
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-lg-8 bg-primary">
+      <p class="">IMAGE</p>
+  
+    </div>
+    <div class="col-12 col-lg-4 bg-secondary text-primary p-4" id="content">
+      <h3 class=""> {{ starship.name }} </h3>
+      <p class="">
+  
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit
+        autem labore natus rem sequi iste a, quasi quia molestiae reprehenderit ex
+        laborum reiciendis ducimus quo. Voluptates, eaque? Optio, alias?
+      </p>
+    </div>
+  </div>
+  
+  <div class="row pt-4">
+    <div class="col-12 col-lg-6 category">
+      <h4>model</h4>
+      <p class="section-color"> {{ starship.model }} </p>
+    </div>
+    <div class="col-12 col-lg-3 category">
+      <h4>cost in credits</h4>
+      <p class="section-color"> {{ starship.cost_in_credits | number}} </p>
+    </div>
+    <div class="col-12 col-lg-3">
+      <h4>length</h4>
+      <p class="section-color"> {{ starship.length | number }} m </p>
+    </div>
+  </div>
+  
+  <div class="row pt-4">
+    <div class="col-12 col-lg-6 category">
+      <h4>manufacturer</h4>
+      <p class="section-color"> {{ starship.manufacturer }} </p>
+    </div>
+    <div class="col-12 col-lg-3 category">
+      <h4>atmospheric speed</h4>
+      <p class="section-color"> {{ starship.max_atmosphering_speed }} </p>
+    </div>
+    <div class="col-12 col-lg-3">
+      <h4>crew</h4>
+      <p class="section-color"> {{ starship.crew }} </p>
+    </div>
+  </div>
+
+</div>
