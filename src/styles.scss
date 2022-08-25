@@ -1,7 +1,15 @@
 $dark: black;
 
-body {
-    background-image: url('https://wallpapercave.com/wp/gfwPusm.jpg')
+$primary: #999999;
+$secondary: #282727;
+
+h1, h2, h3, h4, h5, a, p, span, input {
+    font-family: 'Roboto', 'sans-serif';
+}
+
+body, html {
+    background-color: black;
+    background-image: url('https://img.wallpapersafari.com/desktop/1600/900/61/98/2SciB7.png');
 }
 
 @import '../node_modules/bootstrap/scss/bootstrap.scss';

@@ -1,7 +1,3 @@
-li {
-    cursor: pointer;
-}
-
 @media screen and (min-width:992px) {
     
     .navbar-collapse {
@@ -13,6 +9,64 @@ li {
     }
 }
 
-.navbar-nav {
-    text-align: center;
+// LOGO
+img {
+    max-width: 12rem;
+}
+
+nav {
+    padding: 0;
+    border-top: 1px solid #343434;
+    border-bottom: 1px solid #343434;
+}
+
+ul {
+    border-right: 1px solid #343434;
+    text-transform: uppercase;
+    max-width: 1200px;
+    letter-spacing: 1px;
+}
+  
+li {
+    padding-top: 4px;
+    padding-right: 32px;
+    padding-left: 32px;
+    box-sizing: border-box;
+    border-left: 1px solid #343434;
+}
+
+li a:hover {
+    color: white;
+    transition: background 0.5s ease-in;
+}
+
+a {
+    padding-left: 0;
+    font-size: 14px;
+}
+
+a:hover {
+    color:white;
+}
+
+.horizontal-bar {
+    display: hidden;
+}
+
+.active .horizontal-bar {
+    display: block;
+    position: relative;
+    // width: 32px;
+    color: #7bb149;
+    border-top: 1px solid #fff;
+    box-shadow: 0 0 6px 2px;
+}
+
+.active {
+    color: #6f6f6f;
+}
+
+#navbar {
+    background-image: url('https://img.wallpapersafari.com/desktop/1600/900/61/98/2SciB7.png');
+    background-color: black;
 }

@@ -13,8 +13,8 @@ export class StarshipsService {
 
   constructor( private http: HttpClient ) { }
 
-  getStarships(): Observable<Starship> {
+  getStarships(): Observable<Starship[]> {
     const url = `${this.apiUrl}`
-    return this.http.get<Starship>(url);
+    return this.http.get<Starship[]>(url);
   }
 }

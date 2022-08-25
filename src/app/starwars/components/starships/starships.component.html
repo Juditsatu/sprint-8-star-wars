@@ -1,1 +1,10 @@
-<p>starships works!</p>
+<div class="row" *ngFor="let starship of starships; let i = index">
+    <div class="col">
+        <div class="card text-white bg-secondary mb-3" style="width: 50rem;">
+            <div class="card-body">
+              <h5 class="card-title"> {{ starship.name }} </h5>
+              <p class="card-text"> {{ starship.model }} </p>
+            </div>
+          </div>
+    </div>
+</div>
