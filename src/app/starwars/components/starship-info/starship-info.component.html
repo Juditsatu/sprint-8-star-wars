@@ -1,12 +1,11 @@
 <div class="container">
-  <div class="row">
-    <div class="col-12 col-lg-8 bg-primary">
-      <p class="">IMAGE</p>
-  
+  <div class="row" id="row-img">
+    <div class="col-12 col-lg-6 bg-dark">
+      <img class="img-fluid w-100" [src]="getImage()">
     </div>
-    <div class="col-12 col-lg-4 bg-secondary text-primary p-4" id="content">
-      <h3 class=""> {{ starship.name }} </h3>
-      <p class="">
+    <div class="col-12 col-lg-6 bg-secondary text-primary" id="content">
+      <h3 class="px-4 pt-5"> {{ starship.name }} </h3>
+      <p class="px-4">
   
         Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit
         autem labore natus rem sequi iste a, quasi quia molestiae reprehenderit ex
