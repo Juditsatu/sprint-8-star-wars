@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { StarshipsService } from '../../services/starships.service';
 
 import { Result, Starship } from '../../interfaces/starship.interface';
@@ -12,19 +12,21 @@ export class StarshipsComponent implements OnInit {
 
   constructor( private starshipService: StarshipsService ) { }
 
-  @Input() starships: Result[] = [];
-  
+  starships: Result[] = [];
+  page: number = 1;
   loading: boolean = false;
+  infiniteScroll: boolean = false;
 
   ngOnInit(): void {
     this.getStarships();
   }
 
   getStarships() {
-    this.starshipService.getAllStarships()
+    this.starshipService.getAllStarships(this.page)
       .subscribe({
-        next: (response: any) => {
+        next: (response: Starship) => {
           this.starships = response.results;
+          //set spinner while loading response
           if (response) {
             this.loading = true;
           }
@@ -33,6 +35,17 @@ export class StarshipsComponent implements OnInit {
         error: (err) => {
           console.log(err)
         }
+      })
+  }
+
+  onScroll(): void {
+    this.starshipService.getAllStarships(++this.page)
+      .subscribe((response: Starship) => {
+        this.starships.push(...response.results);
+        if (response) {
+          this.loading = true;
+        }
+        console.log('infinite',this.starships)
       })
   }
 
