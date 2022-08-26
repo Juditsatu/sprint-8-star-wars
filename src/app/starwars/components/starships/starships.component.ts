@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { StarshipsService } from '../../services/starships.service';
 
-import { Result } from '../../interfaces/starship.interface';
+import { Result, Starship } from '../../interfaces/starship.interface';
 
 @Component({
   selector: 'app-starships',
@@ -13,6 +13,8 @@ export class StarshipsComponent implements OnInit {
   constructor( private starshipService: StarshipsService ) { }
 
   @Input() starships: Result[] = [];
+  
+  loading: boolean = false;
 
   ngOnInit(): void {
     this.getStarships();
@@ -23,6 +25,9 @@ export class StarshipsComponent implements OnInit {
       .subscribe({
         next: (response: any) => {
           this.starships = response.results;
+          if (response) {
+            this.loading = true;
+          }
           console.log(this.starships)
         },
         error: (err) => {
