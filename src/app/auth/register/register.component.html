@@ -1,1 +1,91 @@
-<p>register works!</p>
+<!-- Modal btn -->
+<span type="button" (click)="open(mymodal)" data-bs-toggle="modal">
+    Sign Up
+  </span>
+  
+  <!-- MODAL -->
+  <ng-template #mymodal let-modal>
+    <div class="modal-header">
+      <button type="button"
+              class="btn-close"
+              aria-label="Close"
+              (click)="modal.dismiss('Cross click')">
+      </button>
+    </div>
+  
+    <div class="modal-body text-center">
+      <img src="../../../assets/disney-en-US.png" class="img-fluid" style="max-width: 70%;" alt="">
+      <h2 class="modal-title mt-4" id="modal-basic-title">Create your Account</h2>
+      <form>
+        <div class="mb-3">
+          <input  id="name"
+                  class="form-control"
+                  placeholder="First Name"
+                  name="name"
+                  ngbDatepicker/>
+        </div>
+        <div class="mb-3">
+          <input  id="lastName"
+                  class="form-control"
+                  placeholder="Last Name"
+                  name="lastName"
+                  ngbDatepicker/>
+        </div>
+        <div class="mb-3">
+          <input  id="email"
+                  class="form-control"
+                  placeholder="Email Address"
+                  name="email"
+                  ngbDatepicker/>
+        </div>
+        <div class="mb-3">
+          <input  id="password"
+                  class="form-control"
+                  placeholder="Enter your password"
+                  name="password"
+                  ngbDatepicker/>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="passwordCheck">
+          <label class="form-check-label" for="passwordCheck">
+            <p class="checkbox-text">
+              Show password
+            </p>
+          </label>
+        </div>
+        <div class="form-check">
+          <input class="form-check-input" type="checkbox" value="" id="flexCheck">
+          <label class="form-check-label" for="flexCheck">
+            <p class="checkbox-text">Yes! I would like to receive by email special offers and updates about Lucasfilm Ltd. and other
+              products and services from The Walt Disney Family of Companies.
+              <a target="_blank" rel="noopener"
+                href="https://privacy.thewaltdisneycompany.com/en/definitions/#The-Walt-Disney-Family-of-Companies">The Walt Disney
+                Family of Companies</a>
+            </p>
+          </label>
+        </div>
+         
+          <p class="privacy">
+            <span>
+            By creating an account, you
+            agree to our <a target="_blank" rel="noopener" href="https://disneytermsofuse.com/english/">Terms of Use</a>, and
+            acknowledge that you have read our <a target="_blank" rel="noopener"
+              href="https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/">Privacy Policy</a>, <a target="_blank"
+              rel="noopener" href="https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/cookies-policy">Cookies
+              Policy</a> and <a target="_blank" rel="noopener"
+              href="https://privacy.thewaltdisneycompany.com/en/current-privacy-policy/privacy-notice/">UK &amp; EU Privacy
+              Rights</a>.</span>
+          </p>
+        <p class="legal-locale" id="UpdateLegalCountry" data-testid="UpdateLegalCountry">My home country/region: Spain. <a
+            href="#" class="" aria-label="Change" aria-labelledby="Change">Change</a>.</p>
+        <div class="mt-2">
+          <button type="button"
+                  class="btn btn-primary text-light"
+                  (click)="modal.close('Save click')">
+            Continue
+          </button>
+        </div>
+      </form>
+    </div>
+  </ng-template>
+  
