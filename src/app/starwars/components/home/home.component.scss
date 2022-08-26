@@ -12,15 +12,28 @@
     display: none;
 }
 
-div {
-    cursor: pointer;
+//carousel title
+h1 {
+    font-size: 2rem;
+    line-height: 1.1875;
+    color: inherit;
+    font-weight: 100;
 }
 
+//info streaming
 h2 {
+    cursor: pointer;
     color: #999;
     font-size: 0.8em;
-    font-weight: 300;
     letter-spacing: 0.8px;
     margin-right: auto;
     line-height: 1em;
+}
+
+//carousel description
+h3 {
+    font-size: 1.25rem;
+    color: inherit;
+    font-weight: 100;
+    line-height: 24px;
 }

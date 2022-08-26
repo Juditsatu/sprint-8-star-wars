@@ -9,9 +9,17 @@
     }
 }
 
+#navbar-container {
+    background-image: url('https://img.wallpapersafari.com/desktop/1600/900/61/98/2SciB7.png');
+    background-color: black;
+}
+
 // LOGO
 img {
-    max-width: 12rem;
+    top: 50%;
+    width: 100%;
+    max-width: 203px;
+    cursor: pointer;
 }
 
 nav {
@@ -28,9 +36,7 @@ ul {
 }
   
 li {
-    padding-top: 4px;
-    padding-right: 32px;
-    padding-left: 32px;
+    padding: 4px 32px;
     box-sizing: border-box;
     border-left: 1px solid #343434;
 }
@@ -64,9 +70,4 @@ a:hover {
 
 .active {
     color: #6f6f6f;
-}
-
-#navbar {
-    background-image: url('https://img.wallpapersafari.com/desktop/1600/900/61/98/2SciB7.png');
-    background-color: black;
 }

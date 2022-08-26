@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { InfiniteScrollModule } from 'ngx-infinite-scroll';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { StarwarsRoutingModule } from './starwars-routing.module';
 import { HomeComponent } from './components/home/home.component';
@@ -19,6 +20,7 @@ import { IdPipe } from './pipes/id.pipe';
   imports: [
     CommonModule,
     InfiniteScrollModule,
+    NgbModule,
     StarwarsRoutingModule
   ]
 })

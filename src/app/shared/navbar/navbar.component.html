@@ -1,8 +1,10 @@
-<div class="sticky-top mb-3" id="navbar">
+<div class="sticky-top mb-3" id="navbar-container">
     <div class="row p-2 mx-2 d-flex align-items-center">
         <div class="col-4"></div>
         <div class="col d-flex justify-content-center">
-            <img class="img-fluid" href="/" src="../../../assets/star-wars-logo.svg" alt="Star Wars Logo">
+            <img class="img-fluid m-3" href="/" src="../../../assets/star-wars-logo.png" 
+                 alt="Star Wars Logo"
+                 routerLink="home">
         </div>
         <div class="col d-flex justify-content-end text-primary">
             <a class="nav-link" routerLink="">LOG IN</a> 
@@ -14,8 +16,9 @@
     
         <div class="container-fluid center">
             
-            <button class="navbar-toggler navbar-toggler-right" type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" 
-            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"> 
+            <button class="navbar-toggler navbar-toggler-right" 
+                    type="button" (click)="isCollapsed = !isCollapsed" [attr.aria-expanded]="!isCollapsed" 
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation"> 
             <span class="navbar-toggler-icon"></span> 
             </button> 
 

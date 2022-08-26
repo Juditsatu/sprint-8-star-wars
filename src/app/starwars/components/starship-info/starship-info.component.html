@@ -1,56 +1,55 @@
-<!-- loading spinner -->
-<div class="text-center p-5 m-5" *ngIf="!starship; else divStarship">
-  <div class="spinner-border" role="status">
-    <span class="visually-hidden">Loading...</span>
+<div class="container">
+  <!-- loading spinner -->
+  <div class="text-center p-5 m-5" *ngIf="!starship; else divStarship">
+    <div class="spinner-border" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
   </div>
-</div>
 
-<ng-template #divStarship>
-  <div class="container">
+  <ng-template #divStarship>
     <div class="row animate__animated animate__fadeIn" id="row-img">
-      <div class="col-12 col-lg-6 bg-dark ">
-        <img class="img-fluid w-100" [src]="getImage()">
+      <div class="col-12 col-lg-6 bg-dark">
+        <img class="img-fluid w-100" [src]="getImage()" />
       </div>
       <div class="col-12 col-lg-6 bg-secondary text-primary" id="content">
-        <h3 class="px-4 pt-5"> {{ starship.name }} </h3>
+        <h3 class="px-4 pt-5">{{ starship.name }}</h3>
         <p class="px-4">
-    
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium velit
-          autem labore natus rem sequi iste a, quasi quia molestiae reprehenderit ex
-          laborum reiciendis ducimus quo. Voluptates, eaque? Optio, alias?
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Laudantium
+          velit autem labore natus rem sequi iste a, quasi quia molestiae
+          reprehenderit ex laborum reiciendis ducimus quo. Voluptates, eaque?
+          Optio, alias?
         </p>
       </div>
     </div>
-    
+
     <div class="row pt-4">
       <div class="col-12 col-lg-6 category">
         <h4>model</h4>
-        <p class="section-color"> {{ starship.model }} </p>
+        <p class="section-color">{{ starship.model }}</p>
       </div>
       <div class="col-12 col-lg-3 category">
         <h4>cost in credits</h4>
-        <p class="section-color"> {{ starship.cost_in_credits | number}} </p>
+        <p class="section-color">{{ starship.cost_in_credits | number }}</p>
       </div>
       <div class="col-12 col-lg-3">
         <h4>length</h4>
-        <p class="section-color"> {{ starship.length | number }} m </p>
+        <p class="section-color">{{ starship.length | number }} m</p>
       </div>
     </div>
-    
+
     <div class="row pt-4">
       <div class="col-12 col-lg-6 category">
         <h4>manufacturer</h4>
-        <p class="section-color"> {{ starship.manufacturer }} </p>
+        <p class="section-color">{{ starship.manufacturer }}</p>
       </div>
       <div class="col-12 col-lg-3 category">
         <h4>atmospheric speed</h4>
-        <p class="section-color"> {{ starship.max_atmosphering_speed }} </p>
+        <p class="section-color">{{ starship.max_atmosphering_speed }}</p>
       </div>
       <div class="col-12 col-lg-3">
         <h4>crew</h4>
-        <p class="section-color"> {{ starship.crew }} </p>
+        <p class="section-color">{{ starship.crew }}</p>
       </div>
     </div>
-  
-  </div>
-</ng-template>
+  </ng-template>
+</div>

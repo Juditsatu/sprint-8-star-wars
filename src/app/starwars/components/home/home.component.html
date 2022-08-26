@@ -4,17 +4,36 @@
       <span class="title-text">
         <!-- LINK TO DISNEY+ -->
         <!-- href="https://www.disneyplus.com/es-es/brand/star-wars?cid=DTCI-Synergy-StarWars-Site-Acquisition-Library-US-StarWars-NA-EN-NavPipe-StarWars_NavPipe_StarWarsStreamingAnytimeonDisneyPlus_Evergreen-NA" -->
-        <div
-          class="mobile-title-text"
-          href="#">
+        <div class="mobile-title-text" href="#">
           STREAM STAR WARS ON DISNEY+
         </div>
-        <div
-          class="non-mobile-title-text"
-          href="#">
+        <div class="non-mobile-title-text p-2" href="#">
           ALL OF YOUR STAR WARS FAVORITES NOW STREAMING ON DISNEY+
         </div>
       </span>
     </h2>
   </div>
 </div>
+
+<ngb-carousel>
+  <ng-template ngbSlide *ngFor="let image of images">
+    <div class="carousel-inner animate__animated animate__fadeIn">
+      <div class="carousel-item-active align-items-center">
+        <img class="d-block w-100" [src]="image.src" [alt]="image.title" />
+        <div class="carousel-caption d-none d-md-block ">
+          <div class="col text-start">
+            <img [src]="image.img" style="max-width: 40%;">
+          </div>
+          <div class="col-6 text-start">
+            <h1 [innerHTML]="image.title | uppercase"></h1>
+            <h3 [innerHTML]="image.desc"></h3>
+            <button class="btn btn-info px-4 mt-1">
+              {{ image.btn }}
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </ng-template>
+</ngb-carousel>

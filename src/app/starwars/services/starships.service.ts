@@ -9,17 +9,17 @@ import { Starship } from '../interfaces/starship.interface';
 })
 export class StarshipsService {
 
-  private apiUrl: string = 'https://swapi.dev/api/starships/';
+  private apiUrl: string = 'https://swapi.dev/api/starships';
 
   constructor( private http: HttpClient ) { }
 
   getAllStarships(page: number): Observable<Starship> {
-    const url = `${this.apiUrl}?page=${page}`;
+    const url = `${this.apiUrl}/?page=${ page }`;
     return this.http.get<Starship>(url).pipe(delay(1000));
   }
 
   getStarship(id: string): Observable<Starship> {
-    const url = `${this.apiUrl}${ id }`;
+    const url = `${this.apiUrl}/${ id }`;
     return this.http.get<Starship>(url);
   }
   
