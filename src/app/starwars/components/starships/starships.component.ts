@@ -15,7 +15,6 @@ export class StarshipsComponent implements OnInit {
   starships: Result[] = [];
   page: number = 1;
   loading: boolean = false;
-  infiniteScroll: boolean = false;
 
   ngOnInit(): void {
     this.getStarships();
@@ -42,10 +41,7 @@ export class StarshipsComponent implements OnInit {
     this.starshipService.getAllStarships(++this.page)
       .subscribe((response: Starship) => {
         this.starships.push(...response.results);
-        if (response) {
-          this.loading = true;
-        }
-        console.log('infinite',this.starships)
+        console.log('loaded',this.starships)
       })
   }
 

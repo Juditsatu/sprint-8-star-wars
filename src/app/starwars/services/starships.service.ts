@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { delay, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { Starship } from '../interfaces/starship.interface';
 
@@ -15,7 +15,7 @@ export class StarshipsService {
 
   getAllStarships(page: number): Observable<Starship> {
     const url = `${this.apiUrl}/?page=${ page }`;
-    return this.http.get<Starship>(url).pipe(delay(1000));
+    return this.http.get<Starship>(url);
   }
 
   getStarship(id: string): Observable<Starship> {
