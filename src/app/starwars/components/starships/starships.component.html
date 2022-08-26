@@ -11,12 +11,12 @@
     <div
       class="row"
       infinite-scroll
-      [infiniteScrollDistance]="20"
+      [infiniteScrollDistance]="4"
       [infiniteScrollThrottle]="2000"
       (scrolled)="onScroll()"
       *ngFor="let starship of starships; let i = index">
       <div class="col">
-        <div class="card mx-auto w-75 text-white bg-secondary mb-3 animate__animated animate__fadeInUp">
+        <div class="card mx-auto w-75 text-white bg-secondary mb-3 animate__animated animate__slideInUp">
           <div class="card-body" [routerLink]="['/starships/', starship | id]">
             <h5 class="card-title">{{ starship.name }}</h5>
             <p class="card-text">{{ starship.model }}</p>
