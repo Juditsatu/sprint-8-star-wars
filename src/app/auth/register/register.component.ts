@@ -13,11 +13,11 @@ export class RegisterComponent {
   closeResult = '';
   showPassword: boolean = false;
 
-  myForm: FormGroup = this.fb.group({
-    firstName: ['', Validators.required],
-    lastName: ['', Validators.required],
-    email: ['', [Validators.required, Validators.pattern(this.validated.emailPattern)], [ this.emailValidator ]],
-    password: ['', [Validators.required, Validators.minLength(6)]],
+  register: FormGroup = this.fb.group({
+    firstName: ['Leia', Validators.required],
+    lastName: ['Organa', Validators.required],
+    email: ['princessleia@gmail.com', [Validators.required, Validators.pattern(this.validated.emailPattern)], [ this.emailValidator ]],
+    password: ['Alderaan56-3', [Validators.required, Validators.minLength(6)]],
     terms: [false, Validators.required]
   })
 
@@ -50,7 +50,7 @@ export class RegisterComponent {
   }
 
   get emailErrorMsg(): string {
-    const errors = this.myForm.get('email')?.errors;
+    const errors = this.register.get('email')?.errors;
 
     if (errors?.['required']) {
       return 'Please enter your email address.';
@@ -64,7 +64,7 @@ export class RegisterComponent {
   }
 
   get passwordErrorMsg(): string {
-    const errors = this.myForm.get('password')?.errors;
+    const errors = this.register.get('password')?.errors;
 
     if (errors?.['required']) {
       return 'Please enter a password.';
@@ -76,8 +76,8 @@ export class RegisterComponent {
   }
 
   invalidField(field: string) {
-    return this.myForm.get(field)?.invalid &&
-           this.myForm.get(field)?.touched;
+    return this.register.get(field)?.invalid &&
+           this.register.get(field)?.touched;
   }
 
   toggleShow() {
@@ -86,7 +86,9 @@ export class RegisterComponent {
   }
 
   submitForm() {
-    console.log('new user:',this.myForm.value);
-    this.myForm.markAllAsTouched();
+    console.log('new user:',this.register.value);
+    localStorage.setItem('form-data', JSON.stringify({...this.register.value}));
+    console.log(localStorage.getItem('form-data'))
+    this.register.markAllAsTouched();
   }
 }

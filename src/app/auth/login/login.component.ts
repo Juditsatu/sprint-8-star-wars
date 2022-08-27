@@ -10,7 +10,7 @@ import { ValidatorsService } from 'src/app/shared/validators/validators.service'
 })
 export class LoginComponent {
 
-  myForm: FormGroup = this.fb.group({
+  login: FormGroup = this.fb.group({
     email: ['', [Validators.required, Validators.pattern(this.validated.emailPattern)]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
@@ -24,7 +24,7 @@ export class LoginComponent {
   }
 
   get emailErrorMsg(): string {
-    const errors = this.myForm.get('email')?.errors;
+    const errors = this.login.get('email')?.errors;
 
     if (errors?.['required']) {
       return 'Required';
@@ -36,15 +36,15 @@ export class LoginComponent {
   }
 
   invalidField(field: string) {
-    return this.myForm.get(field)?.invalid &&
-           this.myForm.get(field)?.touched;
+    return this.login.get(field)?.invalid &&
+           this.login.get(field)?.touched;
   }
 
   submitForm() {
-    if (this.myForm.valid) {
-      console.log('user:', this.myForm.value);
+    if (this.login.valid) {
+      console.log('user:', this.login.value);
     }
-    this.myForm.markAllAsTouched();
+    this.login.markAllAsTouched();
   }
 
 }

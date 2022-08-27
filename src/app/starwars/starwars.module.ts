@@ -8,6 +8,7 @@ import { HomeComponent } from './components/home/home.component';
 import { StarshipsComponent } from './components/starships/starships.component';
 import { StarshipInfoComponent } from './components/starship-info/starship-info.component';
 import { IdPipe } from './pipes/id.pipe';
+import { PilotsComponent } from './components/pilots/pilots.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { IdPipe } from './pipes/id.pipe';
     HomeComponent,
     StarshipsComponent,
     StarshipInfoComponent,
-    IdPipe
+    IdPipe,
+    PilotsComponent
   ],
   imports: [
     CommonModule,
