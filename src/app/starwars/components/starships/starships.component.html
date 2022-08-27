@@ -8,22 +8,25 @@
   </div>
   
   <ng-template #divStarships>
-    <div
-      class="row"
-      infinite-scroll
-      [infiniteScrollDistance]="4"
-      [infiniteScrollThrottle]="2000"
-      (scrolled)="onScroll()"
-      *ngFor="let starship of starships; let i = index">
-      <div class="col">
-        <div class="card mx-auto w-75 text-white bg-secondary mb-3 animate__animated animate__slideInUp">
-          <div class="card-body" [routerLink]="['/starships/', starship | id]">
-            <h5 class="card-title">{{ starship.name }}</h5>
-            <p class="card-text">{{ starship.model }}</p>
+
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mx-5">
+      <div class="card-group"
+           [routerLink]="['/starships/', starship | id]"
+           infinite-scroll
+           [infiniteScrollDistance]="4"
+           [infiniteScrollThrottle]="2000"
+           (scrolled)="onScroll()"
+           *ngFor="let starship of starships; let i = index">
+        <div class="card text-white bg-secondary mb-3 animate__animated animate__slideInUp">
+          <img src="{{ urlImg }}/{{ starship | id }}.jpg" class="card-img-top" alt="{{ starship.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ starship.name | uppercase }}</h5>
+            <p class="card-text">{{ starship.model | titlecase }}</p>
           </div>
         </div>
       </div>
     </div>
+ 
   </ng-template>
   
 </div>

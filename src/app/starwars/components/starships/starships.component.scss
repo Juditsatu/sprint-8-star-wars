@@ -1,7 +1,27 @@
 .card {
     cursor: pointer;
+    border: 0;
 }
 
-.card:hover {
-    background-color: rgb(66, 66, 66) !important;
+.card-title:hover {
+    color: #9e4f60;
+    transition: 0.3s;
+}
+
+h5 {
+    font-weight: 300;
+    letter-spacing: 0.03em;
+}
+
+p {
+    color: #6f6f6f;
+    letter-spacing: 0.03em;
+}
+
+.card-img-top {
+    height: 15vw;
+    background-image: url('https://starwars-visualguide.com/assets/img/big-placeholder.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }

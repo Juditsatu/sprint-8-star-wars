@@ -18,7 +18,6 @@ export class StarshipInfoComponent implements OnInit {
   @Input() starship!: Result;
 
   urlImg: string = 'https://starwars-visualguide.com/assets/img/starships';
-  // noImage: string = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg';
 
   showPilots: boolean = false;
 

@@ -15,6 +15,7 @@ export class StarshipsComponent implements OnInit {
   starships: Result[] = [];
   page: number = 1;
   loading: boolean = false;
+  urlImg: string = 'https://starwars-visualguide.com/assets/img/starships';
 
   ngOnInit(): void {
     this.getStarships();
