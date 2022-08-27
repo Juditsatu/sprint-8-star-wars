@@ -1,0 +1,34 @@
+.header {
+    border-top: 2px solid rgba(170,170,170,0.25);
+    border-bottom: 2px solid rgba(170,170,170,0.25);
+    margin: 3.04em 0 1.52em;
+    padding: 0.65rem 12px 0.4rem;
+}
+
+h2 {
+    font-size: 1.15rem;
+    line-height: 1.35rem;
+    letter-spacing: 0.08rem;
+    text-transform: uppercase;
+}
+
+img {
+    border-bottom: 2px solid #9e4f60;
+}
+
+h5 {
+    font-size: 0.99em;
+    line-height: 1.3em;
+    letter-spacing: 0.03em;
+}
+
+.card {
+    display: block;
+    border: none;
+    background-color: #282727;
+    margin-bottom: 1rem;
+}
+
+.card-title {
+    text-transform: uppercase;
+}
