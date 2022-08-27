@@ -17,9 +17,8 @@ export class StarshipInfoComponent implements OnInit {
 
   @Input() starship!: Result;
 
-  urlImg: string = 'https://starwars-visualguide.com/assets/img/starships/';
-  noImage: string = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg';
-  idImg: string = '';
+  urlImg: string = 'https://starwars-visualguide.com/assets/img/starships';
+  // noImage: string = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg';
 
   showPilots: boolean = false;
 
@@ -31,17 +30,12 @@ export class StarshipInfoComponent implements OnInit {
       )
       .subscribe(starship => {
         this.starship = starship
-        this.idImg = starship.url.replace(/\D/g, '');
 
         if (starship.pilots.length > 0) {
           this.showPilots = true;
         }
 
       });
-  }
-
-  getImage(): string {
-    return `${this.urlImg + this.idImg}.jpg`;
   }
 
 }
