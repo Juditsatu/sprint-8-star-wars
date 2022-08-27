@@ -16,25 +16,36 @@
   <div class="modal-body text-center">
     <img src="../../../assets/disney-en-US.png" class="img-fluid" style="max-width: 70%;" alt="">
     <h2 class="modal-title mt-4" id="modal-basic-title">Enter your email address</h2>
-    <form>
+    <form [formGroup]="myForm"
+          (ngSubmit)="submitForm()">
       <div class="mb-3">
-        <input  id="email"
+        <!-- Email -->
+        <input  type="email"
                 class="form-control"
                 placeholder="Email Address"
-                name="email"
-                ngbDatepicker/>
+                formControlName="email"/>
+                <p class="form-error">
+                  <span *ngIf="invalidField('email')">
+                    {{ emailErrorMsg }}
+                  </span>
+                </p>
       </div>
+      <!-- Password -->
       <div class="mb-3">
-        <input  id="password"
+        <input  type="password"
                 class="form-control"
                 placeholder="Enter your password"
-                name="password"
-                ngbDatepicker/>
+                formControlName="password"/>
+                <p class="form-error">
+                  <span *ngIf="invalidField('password')">
+                    Please enter a password.
+                  </span>
+                </p>
       </div>
       <div class="mt-2">
-        <button type="button"
+        <button type="submit"
                 class="btn btn-primary text-light"
-                (click)="modal.close('Save click')">
+                (click)="modal.close('submit')">
           Continue
         </button>
       </div>

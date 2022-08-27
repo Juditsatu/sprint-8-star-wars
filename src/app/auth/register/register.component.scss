@@ -35,6 +35,29 @@ input.form-control {
     border-style: solid;
 }
 
+input[type=checkbox] {
+    left: 0;
+    width: 18.795px;
+    height: 18.795px;
+    box-shadow: none;
+}
+input[type=checkbox]:checked {
+    background-color: #106ae0;
+    border: none;
+}
+
+.form-error {
+    text-align: start;
+    line-height: 1.5rem;
+    font-size: 0.8rem;
+    color: red;
+}
+
+label.form-check-label p {
+    padding-left: 8px;
+    font-size: 0.8rem;
+}
+
 .btn {
     width: 100%;
     background-color: #484848;
@@ -44,7 +67,7 @@ input.form-control {
 }
 
 .btn:hover {
-    background-color: rgb(16, 106, 224);
+    background-color: #106ae0;
 }
 
 .btn-close {
@@ -66,5 +89,5 @@ a {
 
 p {
     color: #aaa;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
 }

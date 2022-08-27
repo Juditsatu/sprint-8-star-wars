@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ValidatorsService } from 'src/app/shared/validators/validators.service';
 
 @Component({
   selector: 'app-login',
@@ -8,26 +10,42 @@ import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 })
 export class LoginComponent {
 
-  closeResult = '';
+  myForm: FormGroup = this.fb.group({
+    email: ['', [Validators.required, Validators.pattern(this.validated.emailPattern)]],
+    password: ['', [Validators.required, Validators.minLength(6)]]
+  })
 
-  constructor(private modalService: NgbModal) {}
+  constructor(private modalService: NgbModal,
+              private fb: FormBuilder,
+              private validated: ValidatorsService ) {}
 
   open(content: any) {
-    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
-      this.closeResult = `Closed with: ${result}`;
-    }, (reason) => {
-      this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-    });
+    this.modalService.open(content, { backdrop: 'static' })
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return 'by pressing ESC';
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return 'by clicking on a backdrop';
-    } else {
-      return `with: ${reason}`;
-    }
+  get emailErrorMsg(): string {
+    const errors = this.myForm.get('email')?.errors;
+
+    if (errors?.['required']) {
+      return 'Required';
+    } else if (errors?.['pattern']) {
+      return 'Please enter a valid email address.';
+    } 
+    
+    return '';
   }
+
+  invalidField(field: string) {
+    return this.myForm.get(field)?.invalid &&
+           this.myForm.get(field)?.touched;
+  }
+
+  submitForm() {
+    if (this.myForm.valid) {
+      console.log('user:', this.myForm.value);
+    }
+    this.myForm.markAllAsTouched();
+  }
+
 }
 

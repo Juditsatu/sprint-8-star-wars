@@ -16,45 +16,68 @@
     <div class="modal-body text-center">
       <img src="../../../assets/disney-en-US.png" class="img-fluid" style="max-width: 70%;" alt="">
       <h2 class="modal-title mt-4" id="modal-basic-title">Create your Account</h2>
-      <form>
+      <form [formGroup]="myForm"
+            (ngSubmit)="submitForm()">
+        <!-- Name -->
         <div class="mb-3">
-          <input  id="name"
+          <input  type="text"
                   class="form-control"
                   placeholder="First Name"
-                  name="name"
-                  ngbDatepicker/>
+                  formControlName="firstName"/>
+                  <p class="form-error">
+                    <span *ngIf="invalidField('firstName')">
+                      Please enter your first name.
+                    </span>
+                  </p>
         </div>
+        <!-- Last Name -->
         <div class="mb-3">
-          <input  id="lastName"
+          <input  type="text"
                   class="form-control"
                   placeholder="Last Name"
-                  name="lastName"
-                  ngbDatepicker/>
+                  formControlName="lastName"/>
+                  <p class="form-error">
+                    <span *ngIf="invalidField('lastName')">
+                      Please enter your last name.
+                    </span>
+                  </p>
         </div>
+        <!-- Email -->
         <div class="mb-3">
-          <input  id="email"
+          <input  type="email"
                   class="form-control"
                   placeholder="Email Address"
-                  name="email"
-                  ngbDatepicker/>
+                  formControlName="email"/>
+                  <p class="form-error">
+                    <span *ngIf="invalidField('email')">
+                      {{ emailErrorMsg }}
+                    </span>
+                  </p>
         </div>
+        <!-- Password -->
         <div class="mb-3">
-          <input  id="password"
+          <input  [type]="showPassword ? 'text' : 'password'"
                   class="form-control"
                   placeholder="Enter your password"
-                  name="password"
-                  ngbDatepicker/>
+                  formControlName="password"/>
+                  <p class="form-error">
+                    <span *ngIf="invalidField('password')">
+                      {{ passwordErrorMsg }}
+                    </span>
+                  </p>
         </div>
+        <!-- show password -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="passwordCheck">
+          <input class="form-check-input" type="checkbox" value="" id="passwordCheck" (click)="toggleShow()">
           <label class="form-check-label" for="passwordCheck">
             <p class="checkbox-text">
               Show password
             </p>
           </label>
         </div>
+        <!-- terms of use -->
         <div class="form-check">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheck">
+          <input class="form-check-input" type="checkbox" formControlName="terms" value="" id="flexCheck">
           <label class="form-check-label" for="flexCheck">
             <p class="checkbox-text">Yes! I would like to receive by email special offers and updates about Lucasfilm Ltd. and other
               products and services from The Walt Disney Family of Companies.
@@ -79,8 +102,9 @@
         <p class="legal-locale" id="UpdateLegalCountry" data-testid="UpdateLegalCountry">My home country/region: Spain. <a
             href="#" class="" aria-label="Change" aria-labelledby="Change">Change</a>.</p>
         <div class="mt-2">
-          <button type="button"
+          <button type="submit"
                   class="btn btn-primary text-light"
+                  [disabled]="myForm.pending"
                   (click)="modal.close('Save click')">
             Continue
           </button>
