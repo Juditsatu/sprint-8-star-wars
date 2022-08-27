@@ -1,10 +1,9 @@
-import { Component, Input, OnInit, Pipe, PipeTransform } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { switchMap, tap } from 'rxjs';
 
 import { Result } from '../../interfaces/starship.interface';
 import { StarshipsService } from '../../services/starships.service';
-import { IdPipe } from '../../pipes/id.pipe';
 
 @Component({
   selector: 'app-starship-info',
@@ -22,6 +21,8 @@ export class StarshipInfoComponent implements OnInit {
   noImage: string = 'https://starwars-visualguide.com/assets/img/big-placeholder.jpg';
   idImg: string = '';
 
+  showPilots: boolean = false;
+
   ngOnInit(): void {
     this.activateRoute.params
       .pipe(
@@ -31,6 +32,11 @@ export class StarshipInfoComponent implements OnInit {
       .subscribe(starship => {
         this.starship = starship
         this.idImg = starship.url.replace(/\D/g, '');
+
+        if (starship.pilots.length > 0) {
+          this.showPilots = true;
+        }
+
       });
   }
 

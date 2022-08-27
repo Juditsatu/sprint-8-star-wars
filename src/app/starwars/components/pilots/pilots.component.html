@@ -1,10 +1,10 @@
 <h2 class="header text-light"> pilots </h2>
 <div class="row row-cols-1 row-cols-md-5 g-4">
-    <div class="col text-light">
+    <div class="col text-light" *ngFor="let pilot of pilots">
       <div class="card">
         <img src="https://lumiere-a.akamaihd.net/v1/images/han-solo-main_a4c8ff79.jpeg?region=420%2C0%2C1080%2C1080&width=480" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">Han Solo</h5>
+          <h5 class="card-title"> {{ pilot.name }} </h5>
         </div>
       </div>
     </div>

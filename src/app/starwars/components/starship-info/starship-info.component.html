@@ -51,6 +51,6 @@
         <p class="section-color">{{ starship.crew }}</p>
       </div>
     </div>
-    <app-pilots></app-pilots>
+    <app-pilots *ngIf="showPilots"></app-pilots>
   </ng-template>
 </div>
