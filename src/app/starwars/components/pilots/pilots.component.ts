@@ -17,6 +17,8 @@ export class PilotsComponent implements OnInit {
 
   @Input() pilots: People[] = [];
 
+  urlImg: string = 'https://starwars-visualguide.com/assets/img/characters';
+
   ngOnInit(): void {
     this.activateRoute.params
       .pipe(
@@ -28,7 +30,7 @@ export class PilotsComponent implements OnInit {
           //extract the id of each url in the pilots array
           starship.pilots.forEach((id: string) => 
           this.starshipService.getPilots(id.replace(/\D/g, ''))
-          .subscribe(pilots => this.pilots.push(pilots))
+          .subscribe((pilots: People) => this.pilots.push(pilots))
           )
           console.log(this.pilots);
         },
