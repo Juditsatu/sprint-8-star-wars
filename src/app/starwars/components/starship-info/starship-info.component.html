@@ -9,7 +9,9 @@
   <ng-template #divStarship>
     <div class="row animate__animated animate__fadeIn" id="row-img">
       <div class="col-12 col-lg-6 bg-dark">
-        <img class="img-fluid w-100" src="{{ urlImg }}/{{ starship | id }}.jpg"/>
+        <img class="img-fluid w-100" 
+             src="{{ urlImg }}/{{ starship | id }}.jpg" 
+             onerror="this.src='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'"/>
       </div>
       <div class="col-12 col-lg-6 bg-secondary text-primary" id="content">
         <h3 class="px-4 pt-5">{{ starship.name }}</h3>

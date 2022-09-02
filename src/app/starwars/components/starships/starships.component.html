@@ -13,12 +13,15 @@
       <div class="card-group"
            [routerLink]="['/starships/', starship | id]"
            infinite-scroll
-           [infiniteScrollDistance]="4"
+           [infiniteScrollDistance]="2"
            [infiniteScrollThrottle]="2000"
            (scrolled)="onScroll()"
            *ngFor="let starship of starships; let i = index">
         <div class="card text-white bg-secondary mb-3 animate__animated animate__slideInUp">
-          <img src="{{ urlImg }}/{{ starship | id }}.jpg" class="card-img-top" alt="{{ starship.name }}">
+          <img src="{{ urlImg }}/{{ starship | id }}.jpg" 
+               onerror="this.src='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'" 
+               class="card-img-top" 
+               alt="{{ starship.name }}">
           <div class="card-body">
             <h5 class="card-title">{{ starship.name | uppercase }}</h5>
             <p class="card-text">{{ starship.model | titlecase }}</p>
