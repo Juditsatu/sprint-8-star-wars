@@ -17,3 +17,39 @@ p {
     color: #6f6f6f;
     letter-spacing: 0.03em;
 }
+
+.button {
+    border-top: 2px solid rgba(170,170,170,0.25);
+    margin: 3.04em 0 1.52em;
+    padding: 0.65rem 12px 0.4rem;
+}
+
+.show-more {
+    cursor: pointer;
+    color: #aaa;
+    text-align: center;
+    text-transform: uppercase;
+    line-height: 1.3rem;
+}
+
+.show-more:hover {
+    color: white;
+    transition: background 0.5s ease-in;
+}
+
+.show-more::after {
+    display:block;
+    
+    content: '';
+    border-bottom: solid 1px white;  
+    transform: scaleX(0);  
+    transition: transform 250ms ease-in-out;
+}
+
+.show-more:hover:after {
+    transform: scaleX(1);
+}
+
+img {
+    border-bottom: 2px solid #9e4f60;
+}

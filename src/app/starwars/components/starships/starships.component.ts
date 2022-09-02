@@ -16,6 +16,7 @@ export class StarshipsComponent implements OnInit {
   page: number = 1;
   loading: boolean = false;
   urlImg: string = 'https://starwars-visualguide.com/assets/img/starships';
+  hideButton: boolean = false;
 
   ngOnInit(): void {
     this.getStarships();
@@ -38,7 +39,19 @@ export class StarshipsComponent implements OnInit {
       })
   }
 
-  onScroll(): void {
+  // onScroll(): void {
+  //   this.starshipService.getAllStarships(++this.page)
+  //     .subscribe((response: Starship) => {
+  //       this.starships.push(...response.results);
+  //       console.log('loaded',this.starships)
+  //     })
+  // }
+
+  showMore(): void {
+    //set limit of loading
+    if (this.page > 2) {
+      this.hideButton = true;
+    }
     this.starshipService.getAllStarships(++this.page)
       .subscribe((response: Starship) => {
         this.starships.push(...response.results);

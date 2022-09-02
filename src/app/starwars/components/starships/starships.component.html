@@ -12,10 +12,6 @@
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-4 mx-5">
       <div class="card-group"
            [routerLink]="['/starships/', starship | id]"
-           infinite-scroll
-           [infiniteScrollDistance]="2"
-           [infiniteScrollThrottle]="2000"
-           (scrolled)="onScroll()"
            *ngFor="let starship of starships; let i = index">
         <div class="card text-white bg-secondary mb-3 animate__animated animate__slideInUp">
           <img src="{{ urlImg }}/{{ starship | id }}.jpg" 
@@ -28,6 +24,14 @@
           </div>
         </div>
       </div>
+    </div>
+    <!-- infinite-scroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="2000"
+    (scrolled)="onScroll()" -->
+    <div class="button m-5 d-flex justify-content-center animate__animated animate__slideInUp"
+         *ngIf="!hideButton">
+      <span class="show-more" (click)="showMore()" > show more </span>
     </div>
  
   </ng-template>
