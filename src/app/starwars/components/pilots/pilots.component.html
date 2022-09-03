@@ -1,7 +1,7 @@
 <h2 class="header text-light"> pilots </h2>
 <div class="row row-cols-1 row-cols-md-5 g-4">
     <div class="col text-light" *ngFor="let pilot of pilots">
-      <div class="card">
+      <div class="card animate__animated animate__fadeIn">
         <img src="{{ urlImg }}/{{ pilot | id }}.jpg" class="card-img-top" alt="...">
         <div class="card-body">
           <h5 class="card-title"> {{ pilot.name }} </h5>

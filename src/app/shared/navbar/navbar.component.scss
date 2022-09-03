@@ -103,3 +103,21 @@ a:hover {
 .active {
     color: #6f6f6f;
 }
+
+#social-links {
+    border-right: none;
+    position: initial;
+    width: auto;
+    margin-left: 0;
+}
+
+#social-links li {
+    color: #999;
+    border-left: none;
+    display: block;
+    padding: 4px 15px;
+}
+
+#social-links li a {
+    font-size: 20px;
+}
