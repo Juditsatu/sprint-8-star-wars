@@ -41,7 +41,15 @@ export class AuthService {
     return this.http.get<User>(`${this.baseUrl}/users/1`)
       .pipe(
         tap(user => this._user = user),
-        tap(user => localStorage.setItem('token', user.id))
+        tap(user => localStorage.setItem('token', user.id!))
+      )
+  }
+
+  register(user: User) {
+    return this.http.post<User>(`${this.baseUrl}/users/`, user)
+      .pipe(
+        tap(user => this._user = user),
+        tap(user => localStorage.setItem('token', user.id!))
       )
   }
 

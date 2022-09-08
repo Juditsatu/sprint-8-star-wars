@@ -1,8 +1,14 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
+
 import { ValidatorsService } from '../../shared/validators/validators.service';
 import { EmailValidatorService } from '../../shared/validators/email-validator.service';
+
+import { AuthService } from '../services/auth.service';
+import { Router } from '@angular/router';
+import { User } from '../interface/user.interface';
 
 @Component({
   selector: 'app-register',
@@ -13,7 +19,7 @@ export class RegisterComponent {
   closeResult = '';
   showPassword: boolean = false;
 
-  register: FormGroup = this.fb.group({
+  registerForm: FormGroup = this.fb.group({
     firstName: ['Leia', Validators.required],
     lastName: ['Organa', Validators.required],
     email: ['princessleia@gmail.com', [Validators.required, Validators.pattern(this.validated.emailPattern)], [ this.emailValidator ]],
@@ -21,10 +27,20 @@ export class RegisterComponent {
     terms: [false, Validators.required]
   })
 
+  newUser: User = {
+    first_name: this.registerForm.value.firstName,
+    last_name: this.registerForm.value.lastName,
+    email: this.registerForm.value.email,
+    password: this.registerForm.value.password,
+    terms: this.registerForm.value.terms,
+  };
+
   constructor(private modalService: NgbModal, 
               private fb: FormBuilder, 
               private validated: ValidatorsService,
-              private emailValidator: EmailValidatorService) {}
+              private emailValidator: EmailValidatorService,
+              private authService: AuthService,
+              private router: Router ) {}
 
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
@@ -38,7 +54,7 @@ export class RegisterComponent {
 
   open(content: any) {
     this.modalService
-      .open(content, { ariaLabelledBy: 'modal-basic-title' })
+      .open(content, { backdrop: 'static' })
       .result.then(
         (result) => {
           this.closeResult = `Closed with: ${result}`;
@@ -50,21 +66,22 @@ export class RegisterComponent {
   }
 
   get emailErrorMsg(): string {
-    const errors = this.register.get('email')?.errors;
+    const errors = this.registerForm.get('email')?.errors;
+    const goToLogin = `[routerLink]="[{outlets: {'modal': ['/login']}}]"`
 
     if (errors?.['required']) {
       return 'Please enter your email address.';
     } else if (errors?.['pattern']) {
       return 'Please enter a valid email address.';
     } else if (errors?.['emailTaken']) {
-      return 'It looks like that email has already been used to create an account at Disney, ESPN, Marvel, or ABC. If this is your email address, just sign in to your account.';
+      return `It looks like that email has already been used to create an account at Disney, ESPN, Marvel, or ABC. If this is your email address, just <a>sign in</a> to your account.`;
     }
     
     return '';
   }
 
   get passwordErrorMsg(): string {
-    const errors = this.register.get('password')?.errors;
+    const errors = this.registerForm.get('password')?.errors;
 
     if (errors?.['required']) {
       return 'Please enter a password.';
@@ -76,8 +93,8 @@ export class RegisterComponent {
   }
 
   invalidField(field: string) {
-    return this.register.get(field)?.invalid &&
-           this.register.get(field)?.touched;
+    return this.registerForm.get(field)?.invalid &&
+           this.registerForm.get(field)?.touched;
   }
 
   toggleShow() {
@@ -86,9 +103,22 @@ export class RegisterComponent {
   }
 
   submitForm() {
-    console.log('new user:',this.register.value);
-    localStorage.setItem('form-data', JSON.stringify({...this.register.value}));
-    console.log(localStorage.getItem('form-data'))
-    this.register.markAllAsTouched();
+
+    if (this.registerForm.valid) {
+
+      this.authService.register(this.newUser)
+        .subscribe(user => {
+          console.log(user)
+
+          if (user.id) {
+            this.router.navigate(['./starships'])
+          }
+        
+        })
+      this.modalService.dismissAll()
+    }
+
+    this.registerForm.markAllAsTouched();
   }
+
 }
