@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { map, Observable, of, tap } from 'rxjs';
 
-import { Auth } from '../interface/auth.interface';
+import { User } from '../interface/user.interface';
 
 import { environment } from 'src/environments/environment';
 // import { CookieService } from 'ngx-cookie-service';
@@ -14,10 +14,10 @@ import { environment } from 'src/environments/environment';
 export class AuthService {
 
   private baseUrl: string = environment.baseUrl;
-  private _auth: Auth | undefined;
+  private _user: User | undefined;
 
   get auth() {
-    return {...this._auth!}
+    return {...this._user!}
   }
 
   constructor( private http: HttpClient ) { }
@@ -28,20 +28,20 @@ export class AuthService {
       return of(false);
     }
 
-    return this.http.get<Auth>(`${this.baseUrl}/users/1`)
+    return this.http.get<User>(`${this.baseUrl}/users/1`)
       .pipe(
-        map(auth => {
-          this._auth = auth;
+        map(user => {
+          this._user = user;
           return true;
         })
       )
   }
 
   login() {
-    return this.http.get<Auth>(`${this.baseUrl}/users/1`)
+    return this.http.get<User>(`${this.baseUrl}/users/1`)
       .pipe(
-        tap(auth => this._auth = auth),
-        tap(auth => localStorage.setItem('token', auth.id))
+        tap(user => this._user = user),
+        tap(user => localStorage.setItem('token', user.id))
       )
   }
 

@@ -5,6 +5,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 import { NavbarComponent } from './navbar/navbar.component';
 import { AuthModule } from '../auth/auth.module';
+import { AuthRoutingModule } from '../auth/auth-routing.module';
 
 
 
@@ -16,7 +17,8 @@ import { AuthModule } from '../auth/auth.module';
     CommonModule,
     RouterModule,
     NgbModule,
-    AuthModule
+    AuthModule,
+    AuthRoutingModule
   ],
   exports: [
     NavbarComponent
