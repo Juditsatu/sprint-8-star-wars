@@ -1,9 +1,11 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { ValidatorsService } from 'src/app/shared/validators/validators.service';
+
 import { AuthService } from '../services/auth.service';
+import { ValidatorsService } from 'src/app/shared/validators/validators.service';
 
 @Component({
   selector: 'app-login',
@@ -53,24 +55,24 @@ export class LoginComponent {
            this.loginForm.get(field)?.touched;
   }
 
-  login() {
-
-    const user = {email: this.email, password: this.password};
-    this.authService.login(user).subscribe( data => {
-      console.log(data);
-      this.authService.setToken(data.token);
-      this.router.navigateByUrl('/starships');
-    });
-
-  }
-
   submitForm() {
+
     if (this.loginForm.valid) {
-      //returns user token
-      this.login();
+      //user 'token' as id
+      this.authService.login()
+        .subscribe(res => {
+          console.log(res)
+
+          if (res.id) {
+            this.router.navigate(['./starships'])
+          }
+          
+        })
+      //close modal once form is submitted
+      this.modalService.dismissAll()
     }
+
     this.loginForm.markAllAsTouched();
   }
 
 }
-
