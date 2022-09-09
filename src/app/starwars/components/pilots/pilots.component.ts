@@ -32,7 +32,6 @@ export class PilotsComponent implements OnInit {
           this.starshipService.getPilots(id.replace(/\D/g, ''))
           .subscribe((pilots: People) => this.pilots.push(pilots))
           )
-          console.log(this.pilots);
         },
         error: (err) => { console.log(err) }
       });

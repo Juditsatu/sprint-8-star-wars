@@ -8,23 +8,7 @@
   </div>
   
   <ng-template #divStarships>
-
-    <!-- <div class="card mb-3 text-white bg-secondary animate__animated animate__slideInUp"
-      [routerLink]="['/starships/', starship | id]" *ngFor="let starship of starships; let i = index" >
-      <div class="row g-0">
-        <div class="col-md-4">
-          <img src="{{ urlImg }}/{{ starship | id }}.jpg"
-            onerror="this.src='https://starwars-visualguide.com/assets/img/big-placeholder.jpg'"
-            class="img-fluid rounded-start" alt="{{ starship.name }}">
-        </div>
-        <div class="col-md-8">
-          <div class="card-body">
-            <h5 class="card-title">{{ starship.name | uppercase }}</h5>
-            <p class="card-text">{{ starship.model | titlecase }}</p>
-          </div>
-        </div>
-      </div>
-    </div> -->
+    
     <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mx-5">
       <div class="card-group"
            [routerLink]="['/starships/', starship | id]"
@@ -45,11 +29,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="button m-5 d-flex justify-content-center animate__animated animate__slideInUp"
-         *ngIf="!hideButton">
-      <span class="show-more" (click)="showMore()" > show more </span>
-    </div> -->
  
   </ng-template>
   

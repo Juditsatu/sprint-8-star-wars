@@ -67,14 +67,13 @@ export class RegisterComponent {
 
   get emailErrorMsg(): string {
     const errors = this.registerForm.get('email')?.errors;
-    const goToLogin = `[routerLink]="[{outlets: {'modal': ['/login']}}]"`
 
     if (errors?.['required']) {
       return 'Please enter your email address.';
     } else if (errors?.['pattern']) {
       return 'Please enter a valid email address.';
     } else if (errors?.['emailTaken']) {
-      return `It looks like that email has already been used to create an account at Disney, ESPN, Marvel, or ABC. If this is your email address, just <a>sign in</a> to your account.`;
+      return `It looks like that email has already been used to create an account at Disney, ESPN, Marvel, or ABC. If this is your email address, just sign in to your account.`;
     }
     
     return '';
@@ -85,7 +84,7 @@ export class RegisterComponent {
 
     if (errors?.['required']) {
       return 'Please enter a password.';
-    } else if (errors?.['minLength']) {
+    } else if (errors?.['minlength']) {
       return 'The password is too short.';
     } 
     
@@ -99,7 +98,6 @@ export class RegisterComponent {
 
   toggleShow() {
     this.showPassword = !this.showPassword;
-    console.log( this.showPassword )
   }
 
   submitForm() {
@@ -115,6 +113,7 @@ export class RegisterComponent {
           }
         
         })
+        
       this.modalService.dismissAll()
     }
 

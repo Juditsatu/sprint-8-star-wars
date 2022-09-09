@@ -47,16 +47,4 @@ export class StarshipsComponent implements OnInit {
       })
   }
 
-  // showMore(): void {
-  //   //set limit of loading
-  //   if (this.page > 2) {
-  //     this.hideButton = true;
-  //   }
-  //   this.starshipService.getAllStarships(++this.page)
-  //     .subscribe((response: Starship) => {
-  //       this.starships.push(...response.results);
-  //       console.log('loaded',this.starships)
-  //     })
-  // }
-
 }

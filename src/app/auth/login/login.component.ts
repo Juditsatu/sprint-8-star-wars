@@ -58,7 +58,7 @@ export class LoginComponent {
   submitForm() {
 
     if (this.loginForm.valid) {
-      //user 'token' as id
+
       this.authService.login()
         .subscribe(res => {
           console.log(res)
@@ -68,7 +68,7 @@ export class LoginComponent {
           }
           
         })
-      //close modal once form is submitted
+        
       this.modalService.dismissAll()
     }
 

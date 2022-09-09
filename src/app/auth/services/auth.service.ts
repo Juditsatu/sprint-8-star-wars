@@ -6,7 +6,6 @@ import { map, Observable, of, tap } from 'rxjs';
 import { User } from '../interface/user.interface';
 
 import { environment } from 'src/environments/environment';
-// import { CookieService } from 'ngx-cookie-service';
 
 @Injectable({
   providedIn: 'root'
