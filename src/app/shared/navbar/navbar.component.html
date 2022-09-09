@@ -1,4 +1,4 @@
-<div class="sticky-top mb-3" id="navbar-container">
+<div class="sticky-top mb-3" id="navbar-container" (mousemove)="userIsLogged()">
     <header class="row p-2 mx-2">
         <div class="col-12 col-md-4" id="nav-external-links">
             <ul id="social-links" class="d-flex justify-content-center">
@@ -21,7 +21,7 @@
             alt="Star Wars Logo"
             routerLink="home">
         </div>
-        <div class="col-12 col-md-4 d-flex justify-content-center text-primary">
+        <div class="col-12 col-md-4 d-flex justify-content-center text-primary mt-3">
             <form>
                 <div class="input-group">
                     <input type="search" class="form-control text-light" placeholder="Search Star Wars">
@@ -29,13 +29,22 @@
                         <button class="btn text-primary" type="button"><i class="bi bi-search"></i></button>
                     </div>
                 </div>
-                <span id="nav-login" class="d-block p-2 mt-1 d-flex justify-content-end">
+                <span *ngIf="!isLogged"  id="nav-login" class="d-block p-2 mt-1 d-flex justify-content-end">
+                    
                     <a class="nav-link">
                         <app-login></app-login>
                     </a> 
                     <span class="px-2 text-secondary"> // </span>
                     <a class="nav-link">
                         <app-register></app-register> 
+                    </a>
+                </span>
+                <span *ngIf="isLogged" id="nav-login" class="d-block p-2 mt-1 d-flex justify-content-end">
+                    
+                    <p>Hello there, {{ user.first_name }}</p>
+                    <span class="px-2 text-secondary"> // </span>
+                    <a class="nav-link" (click)="logout()">
+                        Log out
                     </a>
                 </span>
             </form>
