@@ -46,7 +46,7 @@ ng serve --open
 ## :bookmark_tabs: **Usage Instructions**
 
 **IMPORTANT:** routes are protected. Meaning you can't acces the starships unless you **LOG IN** or **SIGN UP**. 
-Here's a fake REST API server you can [download](src/assets/star-wars-server/db.json) so you can prototype a backend with user data.
+Here's a fake REST API server you can [download](src/assets/starwars-server/db.json) so you can prototype a backend with user data.
 
 Next install JSON Server
 ```bash
