@@ -20,10 +20,10 @@ export class RegisterComponent {
   showPassword: boolean = false;
 
   registerForm: FormGroup = this.fb.group({
-    firstName: ['Leia', Validators.required],
-    lastName: ['Organa', Validators.required],
-    email: ['princessleia@gmail.com', [Validators.required, Validators.pattern(this.validated.emailPattern)], [ this.emailValidator ]],
-    password: ['Alderaan56-3', [Validators.required, Validators.minLength(6)]],
+    firstName: ['', Validators.required],
+    lastName: ['', Validators.required],
+    email: ['', [Validators.required, Validators.pattern(this.validated.emailPattern)], [ this.emailValidator ]],
+    password: ['', [Validators.required, Validators.minLength(6)]],
     terms: [false, Validators.required]
   })
 
