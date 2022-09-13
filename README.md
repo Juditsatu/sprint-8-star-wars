@@ -4,7 +4,7 @@ This app is the 8th sprint from *IT Academy - Barcelona*. A course on Front-end 
 
 ## **Preview**
 
-## ![tree diagram](src/assets/starwars-preview.webm)
+## ![tree diagram](src/assets/starwars-preview.gif)
 
 ---
 
